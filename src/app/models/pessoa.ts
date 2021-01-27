@@ -1,7 +1,7 @@
 export class Pessoa {
 
     constructor(
-      public id: number,
+      public nome: number,
       public name: string,
       public alterEgo?: string
     ) {  }

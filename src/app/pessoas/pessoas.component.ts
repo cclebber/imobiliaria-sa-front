@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-pessoas',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PessoasComponent implements OnInit {
 
-  constructor() { }
+  public pessoas=[];
+
+  constructor(private http: HttpClient) {
+
+    this.http.get('http://localhost:3000/pessoas').subscribe(data => {
+      console.info('teste 3333');
+      console.info(data);
+
+    })
+
+  }
 
   ngOnInit(): void {
   }

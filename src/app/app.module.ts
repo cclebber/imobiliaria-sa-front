@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { PessoasComponent } from './pessoas/pessoas.component';
 import { PessoasIncluirComponent } from './pessoas-incluir/pessoas-incluir.component';
 import { ImoveisComponent } from './imoveis/imoveis.component';
@@ -22,7 +26,10 @@ import { ContratosIncluirComponent } from './contratos-incluir/contratos-incluir
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

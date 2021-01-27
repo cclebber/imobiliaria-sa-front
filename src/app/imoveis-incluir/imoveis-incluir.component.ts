@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-imoveis-incluir',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImoveisIncluirComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
+
+    
+  }
 
   ngOnInit(): void {
+    
+  }
+
+  envia() {
+
+    this.http.get('http:localhost:3000/pessoas').subscribe(data => {
+      console.info('teste 3333');
+      console.info(data);
+    })
   }
 
 }

@@ -1,21 +1,38 @@
 <div class="container">
 <h1>Incluir Pessoa</h1>
 
-<form>
+<form [formGroup]="formpessoa" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name">
-      <div class="alert alert-danger">
-        Name is required
-      </div>
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" formControlName="nome">
     </div>
 
     <div class="form-group">
-      <label for="alterEgo">Alter Ego</label>
-      <input type="text" class="form-control" id="alterEgo">
+      <label for="cpf">CPF</label>
+      <input type="text" class="form-control" formControlName="cpf">
     </div>
 
-    <button type="button" class="btn btn-default"  (click)="onSubmit()">Adicionar</button>
+    <div class="form-group">
+      <label for="data_nascimento">Data de Nascimento</label>
+      <input type="date" class="form-control" formControlName="data_nascimento">
+    </div>
+
+    <div class="form-group">
+      <label for="endereco">Endereço</label>
+      <input type="text" class="form-control" formControlName="endereco">
+    </div>
+
+    <div class="form-group">
+      <label for="pix">Pix</label>
+      <input type="text" class="form-control" formControlName="pix">
+    </div>
+
+    <div class="form-group">
+      <label for="contato">Telefone</label>
+      <input type="tel" class="form-control" formControlName="contato">
+    </div>
+
+    <button type="submit" class="btn btn-default">Adicionar</button>
   
   </form>
 

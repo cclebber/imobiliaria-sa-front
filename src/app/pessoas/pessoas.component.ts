@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Pessoa } from '../models/pessoa';
+
 @Component({
   selector: 'app-pessoas',
   templateUrl: './pessoas.component.html',
@@ -8,19 +10,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PessoasComponent implements OnInit {
 
-  public pessoas=[];
+  pessoas:any;
 
   constructor(private http: HttpClient) {
-
-    this.http.get('http://localhost:3000/pessoas').subscribe(data => {
-      console.info('teste 3333');
-      console.info(data);
-
-    })
-
   }
 
   ngOnInit(): void {
+
+    this.http.get<any>('http://localhost:3000/pessoas').subscribe(data => {
+      this.pessoas=data.pessoas;
+    })
+
+
   }
 
 }

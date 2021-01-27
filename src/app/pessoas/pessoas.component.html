@@ -18,13 +18,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Cesar Gautama Pereira Sá </td>
-          <td>44136365896</td>
-          <td>19/09/1998</td>
-          <td>Rua Idalina Rodrigues da Silva nº 51, Jardim dos Ipês, Sumaré-SP</td>
-          <td>19981004013</td>
-          <td>38831917</td>
+        <tr *ngFor="let pessoa of pessoas">
+          <td>{{pessoa.nome}}</td>
+          <td>{{pessoa.cpf}}</td>
+          <td>{{pessoa.data_nascimento}}</td>
+          <td>{{pessoa.endereco}}</td>
+          <td>{{pessoa.pix}}</td>
+          <td>{{pessoa.contato}}</td>
         </tr>
       </tbody>
     </table>

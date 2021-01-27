@@ -5,12 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PessoasComponent } from './pessoas/pessoas.component';
 import { PessoasIncluirComponent } from './pessoas-incluir/pessoas-incluir.component';
+import { ImoveisComponent } from './imoveis/imoveis.component';
+import { ImoveisIncluirComponent } from './imoveis-incluir/imoveis-incluir.component';
+import { ContratosComponent } from './contratos/contratos.component';
+import { ContratosIncluirComponent } from './contratos-incluir/contratos-incluir.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PessoasComponent,
-    PessoasIncluirComponent
+    PessoasIncluirComponent,
+    ImoveisComponent,
+    ImoveisIncluirComponent,
+    ContratosComponent,
+    ContratosIncluirComponent
   ],
   imports: [
     BrowserModule,

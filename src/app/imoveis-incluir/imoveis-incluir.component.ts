@@ -37,7 +37,7 @@ export class ImoveisIncluirComponent implements OnInit {
     form.valor_iptu=form.valor_iptu*1;
     form.proprietario=this.proprietario._id;
 
-    this.http.post('http://localhost:3000/imoveis', {}).subscribe(data => {
+    this.http.post('http://localhost:3000/imoveis', form).subscribe(data => {
       this.router.navigate(['/imoveis']);
     })
   }

@@ -45,7 +45,7 @@ export class ImoveisFormListComponent implements OnInit {
   resetLista(): void{
     setTimeout(() => {
       this.imoveis=[];      
-    }, 100);
+    }, 500);
   }
 
 }

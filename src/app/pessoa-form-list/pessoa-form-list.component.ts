@@ -45,7 +45,7 @@ export class PessoaFormListComponent implements OnInit {
   resetLista(): void{
     setTimeout(() => {
       this.pessoas=[];      
-    }, 100);
+    }, 500);
   }
 
 }

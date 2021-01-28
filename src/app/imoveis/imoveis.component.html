@@ -17,12 +17,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Rua Noel Rosa nº372, Pq. Virgilio Viel, Sumaré-SP </td>
-            <td>13175613</td>
-            <td>950</td>
-            <td>30</td>
-            <td>Adauto</td>
+          <tr *ngFor="let imovel of imoveis">
+            <td>{{imovel.endereco}}</td>
+            <td>{{imovel.cep}}</td>
+            <td>{{imovel.valor_aluguel}}</td>
+            <td>{{imovel.valor_iptu}}</td>
+            <td>{{imovel.proprietario}}</td>
           </tr>
         </tbody>
       </table>

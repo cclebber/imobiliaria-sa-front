@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-imoveis',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImoveisComponent implements OnInit {
 
-  constructor() { }
+  imoveis:any;
+
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(): void {
+
+    this.http.get<any>('http://localhost:3000/imoveis').subscribe(data => {
+      this.imoveis=data.imoveis;
+    })
+
   }
 
 }
+

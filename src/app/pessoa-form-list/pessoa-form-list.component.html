@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="form-group">
+        <label for="pessoas-list">{{label}}</label>
+        <input *ngIf="!selected" type="text" class="form-control" id="pessoas-list" [ngModel]="filtro" (blur)="resetLista()" (ngModelChange)="buscaPessoa($event)" autocomplete="pessoa" >
+        <input *ngIf="selected" type="text" class="form-control" value="{{nome}}" readonly (click)="reset()">
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let pessoa of pessoas" (click)="seleciona(pessoa)">
+        {{pessoa.nome}}
+        </li>
+    </ul>
+</div>

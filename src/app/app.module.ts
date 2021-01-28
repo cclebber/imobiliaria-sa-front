@@ -13,6 +13,8 @@ import { ImoveisComponent } from './imoveis/imoveis.component';
 import { ImoveisIncluirComponent } from './imoveis-incluir/imoveis-incluir.component';
 import { ContratosComponent } from './contratos/contratos.component';
 import { ContratosIncluirComponent } from './contratos-incluir/contratos-incluir.component';
+import { PessoaFormListComponent } from './pessoa-form-list/pessoa-form-list.component';
+import { ImoveisFormListComponent } from './imoveis-form-list/imoveis-form-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ContratosIncluirComponent } from './contratos-incluir/contratos-incluir
     ImoveisComponent,
     ImoveisIncluirComponent,
     ContratosComponent,
-    ContratosIncluirComponent
+    ContratosIncluirComponent,
+    PessoaFormListComponent,
+    ImoveisFormListComponent
   ],
   imports: [
     BrowserModule,

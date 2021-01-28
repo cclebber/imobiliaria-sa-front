@@ -1,48 +1,50 @@
 <div class="container">
 <h1>Incluir Imovel</h1>
 
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="endereco">Endereço</label>
-      <input type="text" class="form-control" id="endereco">
-      <div class="alert alert-danger">
+      <input type="text" class="form-control" id="endereco" formControlName="endereco">
+      <!-- <div class="alert alert-danger">
         Endereco is required
-      </div>
+      </div> -->
     </div>
 
     <div class="form-group">
       <label for="cep">CEP</label>
-      <input type="number" class="form-control" id="cep">
-      <div class="alert alert-danger">
+      <input type="number" class="form-control" id="cep" formControlName="cep">
+      <!-- <div class="alert alert-danger">
         CEP is required
-      </div>
+      </div> -->
     </div>
 
     <div class="form-group">
         <label for="valor_aluguel">Valor do Aluguel</label>
-        <input type="number" class="form-control" id="valor_aluguel">
-        <div class="alert alert-danger">
+        <input type="number" class="form-control" id="valor_aluguel" formControlName="valor_aluguel">
+        <!-- <div class="alert alert-danger">
           Valor do Aluguel is required
-      </div>
+      </div> -->
     </div>
 
       <div class="form-group">
         <label for="valor_iptu">Valor do IPTU</label>
-        <input type="number" class="form-control" id="valor_iptu">
-        <div class="alert alert-danger">
+        <input type="number" class="form-control" id="valor_iptu" formControlName="valor_iptu">
+        <!-- <div class="alert alert-danger">
           Valor do IPTU is required
-      </div>
+      </div> -->
     </div>
 
-    <div class="form-group">
-        <label for="proprietario">Proprietario</label>
-        <input type="text" class="form-control" id="proprietario">
-        <div class="alert alert-danger">
+    <!-- <div class="form-group"> -->
+        <!-- <label for="proprietario">Proprietario</label> -->
+        <!-- <input type="text" class="form-control" id="proprietario"> -->
+        <!-- <div class="alert alert-danger">
           Proprietario is required
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
 
-    <button type="button" class="btn btn-default" (click)="envia()">Adicionar</button>
+      <app-pessoa-form-list label="Proprietário" (pessoa)="selecionaProprietario($event)"></app-pessoa-form-list>
+
+    <button type="submit" class="btn btn-default">Adicionar</button>
 
   </form>
 

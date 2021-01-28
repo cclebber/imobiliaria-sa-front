@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="form-group">
+        <label for="imovel-list">{{label}}</label>
+        <input *ngIf="!selected" type="text" id="imovel-list" class="form-control" [ngModel]="filtro" (blur)="resetLista()" (ngModelChange)="buscaImoveis($event)" autocomplete="imovel" >
+        <input *ngIf="selected" type="text" class="form-control" value="{{referencia}}" readonly (click)="reset()">
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let imovel of imoveis" (click)="seleciona(imovel)">
+            Ref: {{imovel.referencia}} Endereço: {{imovel.endereco}} CEP: {{imovel.cep}} 
+        </li>
+    </ul>
+</div>

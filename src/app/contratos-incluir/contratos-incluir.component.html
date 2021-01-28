@@ -1,42 +1,43 @@
 <div class="container">
     <h1>Incluir Imovel</h1>
     
-    <form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="data_inicio">Data de Inicio</label>
-          <input type="date" class="form-control" id="data_inicio">
-          <div class="alert alert-danger">
+          <input type="date" class="form-control" id="data_inicio" formControlName="data_inicio">
+          <!-- <div class="alert alert-danger">
             Data de Inicio is required
-          </div>
+          </div> -->
         </div>
     
         <div class="form-group">
             <label for="data_final">Data de Rescisão</label>
-            <input type="date" class="form-control" id="data_final">
-            <div class="alert alert-danger">
+            <input type="date" class="form-control" id="data_final" formControlName="data_final">
+            <!-- <div class="alert alert-danger">
               Data de Rescisão is required
-            </div>
+            </div> -->
           </div>
     
         <div class="form-group">
             <label for="valor_aluguel">Valor do Aluguel</label>
-            <input type="number" class="form-control" id="valor_aluguel">
-            <div class="alert alert-danger">
+            <input type="number" class="form-control" id="valor_aluguel" formControlName="valor_aluguel">
+            <!-- <div class="alert alert-danger">
               Valor do Aluguel is required
-          </div>
+          </div> -->
         </div>
     
           <div class="form-group">
             <label for="valor_caucao">Valor da Caucao</label>
-            <input type="number" class="form-control" id="valor_caucao">
-            <div class="alert alert-danger">
+            <input type="number" class="form-control" id="valor_caucao" formControlName="valor_caucao">
+            <!-- <div class="alert alert-danger">
               Valor da Caucao is required
-          </div>
+          </div> -->
         </div>
 
     <div class="form-group">
-          <select class="form-select" id="data_pagamento">
-            <option selected>Dia de Pagamento</option>
+        <label for="data_pagamento">Dia de Pagamento</label>
+          <select class="form-select" id="data_pagamento" formControlName="valor_aluguel">
+            <!-- <option value="">Dia de Pagamento</option> -->
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -71,23 +72,11 @@
           </select>
         </div>
 
-        <div class="form-group">
-            <label for="proprietario">Inquilino</label>
-            <input type="text" class="form-control" id="inquilino">
-            <div class="alert alert-danger">
-              Inquilino is required
-            </div>
-          </div>
+        <app-pessoa-form-list label="Inquilino" (pessoa)="selecionaInquilino($event)"></app-pessoa-form-list>
 
-          <div class="form-group">
-            <label for="imovel">Imovel</label>
-            <input type="text" class="form-control" id="imovel">
-            <div class="alert alert-danger">
-              Imovel is required
-            </div>
-          </div>
+        <app-imoveis-form-list label="Imovel" (imovel)="selecionaImovel($event)"></app-imoveis-form-list>
     
-        <button type="button" class="btn btn-default">Adicionar</button>
+        <button type="submit" class="btn btn-default">Adicionar</button>
     
       </form>
     

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-imoveis-incluir',
@@ -8,20 +10,35 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ImoveisIncluirComponent implements OnInit {
 
-  constructor(private http: HttpClient) { 
+  form: FormGroup;
+  proprietario:any;
 
-    
+  constructor(private http: HttpClient, public fb: FormBuilder, private router: Router) { 
+    this.form = this.fb.group({
+      endereco:'',
+      cep:'',
+      valor_aluguel:'',
+      valor_iptu:'',
+    })    
   }
 
   ngOnInit(): void {
     
   }
 
-  envia() {
+  selecionaProprietario(proprietario:any) : void{
+    this.proprietario=proprietario;
+  }
 
-    this.http.get('http:localhost:3000/pessoas').subscribe(data => {
-      console.info('teste 3333');
-      console.info(data);
+  onSubmit(): void {
+    let form = this.form.value;
+    form.cpf=form.cep*1;
+    form.valor_aluguel=form.valor_aluguel*1;
+    form.valor_iptu=form.valor_iptu*1;
+    form.proprietario=this.proprietario._id;
+
+    this.http.post('http://localhost:3000/imoveis', {}).subscribe(data => {
+      this.router.navigate(['/imoveis']);
     })
   }
 

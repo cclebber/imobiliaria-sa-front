@@ -47,7 +47,7 @@ export class ContratosIncluirComponent implements OnInit {
     form.inquilino=this.inquilino._id;
     form.imovel=this.imovel._id;
 
-    this.http.post('http://localhost:3000/imoveis', form).subscribe(data => {
+    this.http.post('http://localhost:3000/contratos', form).subscribe(data => {
       this.router.navigate(['/contratos']);
     })
   }

@@ -16,6 +16,7 @@
             <th scope="col">Dia de Pagamento</th>
             <th scope="col">Inquilino</th>
             <th scope="col">Imóvel</th>
+            <td></td>
           </tr>
         </thead>
         <tbody>
@@ -26,8 +27,9 @@
               <td>{{contrato.valor_aluguel}}</td>
               <td>{{contrato.valor_caucao}}</td>
               <td>{{contrato.data_pagamento}}</td>
-              <td>{{contrato.inquilino}}</td>
-              <td>{{contrato.imovel}}</td>
+              <td>{{contrato.inquilino.nome}}</td>
+              <td>{{contrato.imovel.referencia}} - {{contrato.imovel.endereco}}</td>
+              <td><a [routerLink]="['/contratos-editar', contrato._id]" class="btn btn-secondary"> <i class="bi bi-pencil-square"></i> </a></td>
             </tr>
         </tbody>
       </table>

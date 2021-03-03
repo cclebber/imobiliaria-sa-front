@@ -36,7 +36,7 @@
 
     <div class="form-group">
         <label for="data_pagamento">Dia de Pagamento</label>
-          <select class="form-select" id="data_pagamento" formControlName="valor_aluguel">
+          <select class="form-select" id="data_pagamento" formControlName="data_pagamento">
             <!-- <option value="">Dia de Pagamento</option> -->
             <option value="1">1</option>
             <option value="2">2</option>
@@ -72,11 +72,15 @@
           </select>
         </div>
 
-        <app-pessoa-form-list label="Inquilino" (pessoa)="selecionaInquilino($event)"></app-pessoa-form-list>
+        <app-pessoa-form-list label="Inquilino" [nome]="inquilino?.nome" (pessoa)="selecionaInquilino($event)"></app-pessoa-form-list>
 
-        <app-imoveis-form-list label="Imovel" (imovel)="selecionaImovel($event)"></app-imoveis-form-list>
+        <app-imoveis-form-list label="Imovel" [referencia]="imovel?.referencia" (imovel)="selecionaImovel($event)"></app-imoveis-form-list>
+        
+        <a class="btn btn-danger" *ngIf="contratoId" (click)="excluir()">Excluir</a>
     
-        <button type="submit" class="btn btn-default">Adicionar</button>
+        <button type="submit" style="float:right;" class="btn btn-primary" *ngIf="!contratoId">Adicionar</button>
+        <button type="submit" style="float:right;" class="btn btn-primary" *ngIf="contratoId">Salvar</button>
+
     
       </form>
     

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -6,13 +6,13 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './pessoa-form-list.component.html',
   styleUrls: ['./pessoa-form-list.component.scss']
 })
-export class PessoaFormListComponent implements OnInit {
+export class PessoaFormListComponent implements OnChanges {
 
   @Input() label:string;
+  @Input() nome:any;
   @Output() pessoa = new EventEmitter();
   
   pessoas:any;
-  nome:any;
   filtro:any;
   selected:boolean=false;
 
@@ -20,7 +20,8 @@ export class PessoaFormListComponent implements OnInit {
     this.label='';
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    if(this.nome)this.selected=true;
     
   }
 

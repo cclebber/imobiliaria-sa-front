@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -6,13 +6,13 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './imoveis-form-list.component.html',
   styleUrls: ['./imoveis-form-list.component.scss']
 })
-export class ImoveisFormListComponent implements OnInit {
+export class ImoveisFormListComponent implements OnChanges {
 
   @Input() label:string;
+  @Input() referencia:any;
   @Output() imovel = new EventEmitter();
   
   imoveis:any;
-  referencia:any;
   filtro:any;
   selected:boolean=false;
 
@@ -20,8 +20,8 @@ export class ImoveisFormListComponent implements OnInit {
     this.label='';
   }
 
-  ngOnInit(): void {
-    
+  ngOnChanges(): void {
+    if(this.referencia) this.selected=true;
   }
 
   buscaImoveis(endereco:string): void{

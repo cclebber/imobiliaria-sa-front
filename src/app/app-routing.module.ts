@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'imoveis-incluir', component: ImoveisIncluirComponent},
   {path: 'contratos', component: ContratosComponent},
   {path: 'contratos-incluir', component: ContratosIncluirComponent},
+  {path: 'contratos-editar/:id', component: ContratosIncluirComponent},
 ];
 
 @NgModule({

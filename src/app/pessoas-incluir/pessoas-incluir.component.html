@@ -1,5 +1,5 @@
 <div class="container">
-<h1>Incluir Pessoa</h1>
+<h1>{{pessoaId? 'Editar':'Incluir'}} Pessoa</h1>
 
 <form [formGroup]="formpessoa" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -32,7 +32,10 @@
       <input type="tel" class="form-control" formControlName="contato">
     </div>
 
-    <button type="submit" class="btn btn-default">Adicionar</button>
+    <a class="btn btn-danger my-3" *ngIf="pessoaId && !notExclude" (click)="excluir()">Excluir</a>
+  
+    <button type="submit" style="float:right;" class="btn btn-primary my-3" *ngIf="!pessoaId">Adicionar</button>
+    <button type="submit" style="float:right;" class="btn btn-primary my-3" *ngIf="pessoaId">Salvar</button>
   
   </form>
 

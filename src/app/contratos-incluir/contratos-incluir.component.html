@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Incluir Imovel</h1>
+    <h1>{{contratoId? 'Editar':'Incluir'}} Contrato</h1>
     
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-group">
@@ -74,10 +74,10 @@
 
         <app-imoveis-form-list label="Imovel" [referencia]="imovel?.referencia" (imovel)="selecionaImovel($event)"></app-imoveis-form-list>
         
-        <a class="btn btn-danger" *ngIf="contratoId" (click)="excluir()">Excluir</a>
+        <a class="btn btn-danger my-3" *ngIf="contratoId" (click)="excluir()">Excluir</a>
     
-        <button type="submit" style="float:right;" class="btn btn-primary" *ngIf="!contratoId">Adicionar</button>
-        <button type="submit" style="float:right;" class="btn btn-primary" *ngIf="contratoId">Salvar</button>
+        <button type="submit" style="float:right;" class="btn btn-primary my-3" *ngIf="!contratoId">Adicionar</button>
+        <button type="submit" style="float:right;" class="btn btn-primary my-3" *ngIf="contratoId">Salvar</button>
 
     
       </form>

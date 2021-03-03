@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: 'pessoas-editar/:id', component: PessoasIncluirComponent},
   {path: 'imoveis', component: ImoveisComponent},
   {path: 'imoveis-incluir', component: ImoveisIncluirComponent},
+  {path: 'imoveis-editar/:id', component: ImoveisIncluirComponent},
   {path: 'contratos', component: ContratosComponent},
   {path: 'contratos-incluir', component: ContratosIncluirComponent},
   {path: 'contratos-editar/:id', component: ContratosIncluirComponent},

@@ -69,8 +69,8 @@ export class ContratosIncluirComponent implements OnInit {
       //altera
       form.id=this.contratoId;
       this.http.put('http://localhost:3000/contratos', form).subscribe(data => {
-      this.router.navigate(['/contratos']);
-    })
+        this.router.navigate(['/contratos']);
+      })
     }else{
       //novo
       this.http.post('http://localhost:3000/contratos', form).subscribe(data => {

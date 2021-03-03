@@ -25,6 +25,7 @@
           <td>{{pessoa.endereco}}</td>
           <td>{{pessoa.pix}}</td>
           <td>{{pessoa.contato}}</td>
+          <td><a [routerLink]="['/pessoas-editar', pessoa._id]" class="btn btn-secondary"> <i class="bi bi-pencil-square"></i> </a></td>
         </tr>
       </tbody>
     </table>

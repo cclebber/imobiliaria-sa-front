@@ -9,20 +9,24 @@
     <table class="table table-striped">
         <thead>
           <tr>
+            <th scope="col">Referencia</th>
             <th scope="col">Endereço</th>
             <th scope="col">CEP</th>
             <th scope="col">Valor Aluguel</th>
             <th scope="col">Valor IPTU</th>
             <th scope="col">Proprietario</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let imovel of imoveis">
+            <td>{{imovel.referencia}}</td>
             <td>{{imovel.endereco}}</td>
             <td>{{imovel.cep}}</td>
             <td>{{imovel.valor_aluguel}}</td>
             <td>{{imovel.valor_iptu}}</td>
             <td>{{imovel.proprietario.nome}}</td>
+            <td><a [routerLink]="['/imoveis-editar', imovel._id]" class="btn btn-secondary"> <i class="bi bi-pencil-square"></i> </a></td>
           </tr>
         </tbody>
       </table>

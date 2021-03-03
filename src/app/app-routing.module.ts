@@ -10,6 +10,7 @@ import { ContratosIncluirComponent } from './contratos-incluir/contratos-incluir
 const routes: Routes = [
   {path: 'pessoas', component: PessoasComponent},
   {path: 'pessoas-incluir', component: PessoasIncluirComponent},
+  {path: 'pessoas-editar/:id', component: PessoasIncluirComponent},
   {path: 'imoveis', component: ImoveisComponent},
   {path: 'imoveis-incluir', component: ImoveisIncluirComponent},
   {path: 'contratos', component: ContratosComponent},

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pessoas-incluir',
@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 
 export class PessoasIncluirComponent implements OnInit {
   formpessoa: FormGroup;
+  pessoaId: any= "";
   submitted = false;
 
-  constructor(private http: HttpClient, public fb: FormBuilder, private router: Router) {
+  constructor(private http: HttpClient, public fb: FormBuilder, private router: Router,private route: ActivatedRoute) {
     this.formpessoa = this.fb.group({
       nome:'',
       cpf:'',
@@ -22,23 +23,51 @@ export class PessoasIncluirComponent implements OnInit {
       pix:'',
       contato:''
     })  
+    this.route=route;
   }
 
   ngOnInit(): void {
+
+    this.pessoaId=this.route.snapshot.paramMap.get('id');
+    if(this.pessoaId){
+      this.http.get<any>('http://localhost:3000/pessoas/'+this.pessoaId).subscribe(data => {
+        console.info(data);
+        this.formpessoa.setValue({
+          nome:data.nome,
+          cpf:data.cpf,
+          data_nascimento:data.data_nascimento.split('T')[0],
+          endereco:data.endereco,
+          pix:data.pix,
+          contato:data.contato
+        })
+      })
+    }
+}
+onSubmit(): void {
+    let form = this.formpessoa.value;
+    form.cpf=form.cpf*1;
+    form.contato=form.cpf*1;
+    form.data_nascimento=new Date(form.data_nascimento);
+
+    if(this.pessoaId){
+      //altera
+      form.id=this.pessoaId;
+      this.http.put('http://localhost:3000/pessoas', form).subscribe(data => {
+      this.router.navigate(['/pessoas']);
+    })
+    }else{
+      //novo
+      this.http.post('http://localhost:3000/contratos', form).subscribe(data => {
+        this.router.navigate(['/pessoas']);
+      })
+    }
   }
 
-  onSubmit() {
-     this.submitted = true; 
-     let form = this.formpessoa.value;
-     form.contato=form.contato*1;
-     form.cpf=form.cpf*1;
-     form.data_nascimento=new Date(form.data_nascimento);
-
-     this.http.post('http://localhost:3000/pessoas', form).subscribe(data => {
-
+excluir(): void {
+  if(confirm("Tem certeza que deseja mesmo excluir?")){      
+    this.http.delete('http://localhost:3000/pessoas/'+this.pessoaId).subscribe(data => {
       this.router.navigate(['/pessoas']);
-
     })
   }
-
+}
 }

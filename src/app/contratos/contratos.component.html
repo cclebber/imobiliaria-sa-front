@@ -24,7 +24,10 @@
               <td>{{contrato.data_pagamento}}</td>
               <td>{{contrato.inquilino.nome}}</td>
               <td>{{contrato.imovel.referencia}} - {{contrato.imovel.endereco}}</td>
-              <td><a [routerLink]="['/contratos-editar', contrato._id]" class="btn btn-secondary"> <i class="bi bi-pencil-square"></i> </a></td>
+              <td>
+                <a href="http://localhost:3000/contratos/imprimir/{{contrato._id}}" target="_blank" class="btn btn-secondary"> <i class="bi bi-printer"></i></a>
+                <a [routerLink]="['/contratos-editar', contrato._id]" class="btn btn-secondary"> <i class="bi bi-pencil-square"></i></a>
+              </td>
             </tr>
         </tbody>
       </table>

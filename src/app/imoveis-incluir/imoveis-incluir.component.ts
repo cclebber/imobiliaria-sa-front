@@ -14,6 +14,7 @@ export class ImoveisIncluirComponent implements OnInit {
   proprietario:any;
   imovelId:any;
   notExclude:Boolean = false;
+  validate:any={};
 
   constructor(private http: HttpClient, public fb: FormBuilder, private router: Router, private route: ActivatedRoute) { 
     this.form = this.fb.group({
@@ -51,16 +52,18 @@ export class ImoveisIncluirComponent implements OnInit {
     form.cpf=form.cep*1;
     form.valor_aluguel=form.valor_aluguel*1;
     form.valor_iptu=form.valor_iptu*1;
-    form.proprietario=this.proprietario._id;
+    if (this.proprietario)form.proprietario=this.proprietario._id;
 
     if(this.imovelId){
       form.id=this.imovelId;
-      this.http.put('http://localhost:3000/imoveis', form).subscribe(data => {
-        this.router.navigate(['/imoveis']);
+      this.http.put<any>('http://localhost:3000/imoveis', form).subscribe(data => {
+        if(data.ok) this.router.navigate(['/imoveis']);
+        else this.validate=data.message.errors;
       })
     }else{      
-      this.http.post('http://localhost:3000/imoveis', form).subscribe(data => {
-        this.router.navigate(['/imoveis']);
+      this.http.post<any>('http://localhost:3000/imoveis', form).subscribe(data => {
+        if(data.ok) this.router.navigate(['/imoveis']);
+        else this.validate=data.message.errors;
       })
     }
   }

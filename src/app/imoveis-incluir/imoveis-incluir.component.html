@@ -5,44 +5,38 @@
     <div class="form-group">
       <label for="endereco">Endereço</label>
       <input type="text" class="form-control" id="endereco" formControlName="endereco">
-      <!-- <div class="alert alert-danger">
-        Endereco is required
-      </div> -->
+      <div class="alert alert-danger" *ngIf="validate.endereco">
+        {{validate.endereco.message}}
+      </div>
     </div>
 
     <div class="form-group">
       <label for="cep">CEP</label>
       <input type="number" class="form-control" id="cep" formControlName="cep">
-      <!-- <div class="alert alert-danger">
-        CEP is required
-      </div> -->
+      <div class="alert alert-danger" *ngIf="validate.cep">
+        {{validate.cep.message}}
+      </div>
     </div>
 
     <div class="form-group">
         <label for="valor_aluguel">Valor do Aluguel</label>
         <input type="number" class="form-control" id="valor_aluguel" formControlName="valor_aluguel">
-        <!-- <div class="alert alert-danger">
-          Valor do Aluguel is required
-      </div> -->
+        <div class="alert alert-danger" *ngIf="validate.valor_aluguel">
+          {{validate.nome.message}}
+        </div>
     </div>
 
       <div class="form-group">
         <label for="valor_iptu">Valor do IPTU</label>
         <input type="number" class="form-control" id="valor_iptu" formControlName="valor_iptu">
-        <!-- <div class="alert alert-danger">
-          Valor do IPTU is required
-      </div> -->
+        <div class="alert alert-danger" *ngIf="validate.valor_iptu">
+          {{validate.valor_iptu.message}}
+        </div>
     </div>
 
-    <!-- <div class="form-group"> -->
-        <!-- <label for="proprietario">Proprietario</label> -->
-        <!-- <input type="text" class="form-control" id="proprietario"> -->
-        <!-- <div class="alert alert-danger">
-          Proprietario is required
-        </div> -->
-      <!-- </div> -->
 
     <app-pessoa-form-list label="Proprietário" [nome]="proprietario?.nome" (pessoa)="selecionaProprietario($event)"></app-pessoa-form-list>
+  
 
     <a class="btn btn-danger my-3" *ngIf="imovelId && !notExclude" (click)="excluir()">Excluir</a>
   

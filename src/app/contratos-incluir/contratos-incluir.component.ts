@@ -14,6 +14,7 @@ export class ContratosIncluirComponent implements OnInit {
   inquilino:any;
   imovel:any;
   contratoId: any= "";
+  validate:any={};
 
   constructor(private http: HttpClient, public fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.form = this.fb.group({
@@ -68,13 +69,15 @@ export class ContratosIncluirComponent implements OnInit {
     if(this.contratoId){
       //altera
       form.id=this.contratoId;
-      this.http.put('http://localhost:3000/contratos', form).subscribe(data => {
-        this.router.navigate(['/contratos']);
+      this.http.put<any>('http://localhost:3000/contratos', form).subscribe(data => {
+        if(data.ok) this.router.navigate(['/contratos']);
+        else this.validate=data.message.errors;
       })
     }else{
       //novo
-      this.http.post('http://localhost:3000/contratos', form).subscribe(data => {
-        this.router.navigate(['/contratos']);
+      this.http.post<any>('http://localhost:3000/contratos', form).subscribe(data => {
+        if(data.ok) this.router.navigate(['/contratos']);
+        else this.validate=data.message.errors;
       })
     }
   }

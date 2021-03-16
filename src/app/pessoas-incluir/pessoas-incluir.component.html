@@ -21,24 +21,39 @@
     <div class="form-group">
       <label for="data_nascimento">Data de Nascimento</label>
       <input type="date" class="form-control" formControlName="data_nascimento">
+      <div class="alert alert-danger" *ngIf="validate.data_nascimento">
+        {{validate.data_nascimento.message}}
+      </div>
     </div>
 
     <div class="form-group">
       <label for="endereco">Endereço</label>
       <input type="text" class="form-control" formControlName="endereco">
+      <div class="alert alert-danger" *ngIf="validate.endereco">
+        {{validate.endereco.message}}
+      </div>
     </div>
 
     <div class="form-group">
       <label for="pix">Pix</label>
       <input type="text" class="form-control" formControlName="pix">
+      <div class="alert alert-danger" *ngIf="validate.pix">
+        {{validate.pix.message}}
+      </div>
     </div>
 
     <div class="form-group">
       <label for="contato">Telefone</label>
       <input type="tel" class="form-control" formControlName="contato">
+      <div class="alert alert-danger" *ngIf="validate.contato">
+        {{validate.contato.message}}
+      </div>
     </div>
 
     <a class="btn btn-danger my-3" *ngIf="pessoaId && !notExclude" (click)="excluir()">Excluir</a>
+    <div class="alert alert-danger" *ngIf="validate.proprietario">
+      {{validate.proprietario.message}}
+    </div>
   
     <button type="submit" style="float:right;" class="btn btn-primary my-3" *ngIf="!pessoaId">Adicionar</button>
     <button type="submit" style="float:right;" class="btn btn-primary my-3" *ngIf="pessoaId">Salvar</button>

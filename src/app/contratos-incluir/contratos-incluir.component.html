@@ -5,33 +5,33 @@
         <div class="form-group">
           <label for="data_inicio">Data de Inicio</label>
           <input type="date" class="form-control" id="data_inicio" formControlName="data_inicio">
-          <!-- <div class="alert alert-danger">
-            Data de Inicio is required
-          </div> -->
+          <div class="alert alert-danger" *ngIf="validate.data_inicio">
+            {{validate.data_inicio.message}}
+          </div>
         </div>
     
         <div class="form-group">
             <label for="data_final">Data de Rescisão</label>
             <input type="date" class="form-control" id="data_final" formControlName="data_final">
-            <!-- <div class="alert alert-danger">
-              Data de Rescisão is required
-            </div> -->
+            <div class="alert alert-danger" *ngIf="validate.data_final">
+              {{validate.data_final.message}}
+            </div>
           </div>
     
         <div class="form-group">
             <label for="valor_aluguel">Valor do Aluguel</label>
             <input type="number" class="form-control" id="valor_aluguel" formControlName="valor_aluguel">
-            <!-- <div class="alert alert-danger">
-              Valor do Aluguel is required
-          </div> -->
+            <div class="alert alert-danger" *ngIf="validate.valor_aluguel">
+              {{validate.valor_aluguel.message}}
+            </div>
         </div>
     
           <div class="form-group">
             <label for="valor_caucao">Valor da Caucao</label>
             <input type="number" class="form-control" id="valor_caucao" formControlName="valor_caucao">
-            <!-- <div class="alert alert-danger">
-              Valor da Caucao is required
-          </div> -->
+            <div class="alert alert-danger" *ngIf="validate.valor_caucao">
+              {{validate.valor_caucao.message}}
+            </div>
         </div>
 
     <div class="form-group">
@@ -68,12 +68,19 @@
             <option value="30">30</option>
             <option value="31">31</option>
           </select>
+          <div class="alert alert-danger" *ngIf="validate.data_pagamento">
+            {{validate.data_pagamento.message}}
+          </div>
         </div>
 
         <app-pessoa-form-list label="Inquilino" [nome]="inquilino?.nome" (pessoa)="selecionaInquilino($event)"></app-pessoa-form-list>
-
+        <div class="alert alert-danger" *ngIf="validate.inquilino">
+          {{validate.inquilino.message}}
+        </div>
         <app-imoveis-form-list label="Imovel" [referencia]="imovel?.referencia" (imovel)="selecionaImovel($event)"></app-imoveis-form-list>
-        
+        <div class="alert alert-danger" *ngIf="validate.imovel">
+          {{validate.imovel.message}}
+        </div>
         <a class="btn btn-danger my-3" *ngIf="contratoId" (click)="excluir()">Excluir</a>
     
         <button type="submit" style="float:right;" class="btn btn-primary my-3" *ngIf="!contratoId">Adicionar</button>

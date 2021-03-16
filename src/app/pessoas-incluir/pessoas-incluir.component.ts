@@ -14,6 +14,7 @@ export class PessoasIncluirComponent implements OnInit {
   pessoaId: any= "";
   submitted = false;
   notExclude:Boolean = false;
+  validate:any={};
 
   constructor(private http: HttpClient, public fb: FormBuilder, private router: Router,private route: ActivatedRoute) {
     this.formpessoa = this.fb.group({
@@ -47,20 +48,21 @@ export class PessoasIncluirComponent implements OnInit {
 }
 onSubmit(): void {
     let form = this.formpessoa.value;
-    form.cpf=form.cpf*1;
-    form.contato=form.cpf*1;
+    form.contato=form.contato*1;
     form.data_nascimento=new Date(form.data_nascimento);
 
     if(this.pessoaId){
       //altera
       form.id=this.pessoaId;
-      this.http.put('http://localhost:3000/pessoas', form).subscribe(data => {
-      this.router.navigate(['/pessoas']);
-    })
+      this.http.put<any>('http://localhost:3000/pessoas', form).subscribe(data => {
+        if(data.ok) this.router.navigate(['/pessoas']);
+        else this.validate=data.message.errors;
+      })
     }else{
       //novo
-      this.http.post('http://localhost:3000/pessoas', form).subscribe(data => {
-        this.router.navigate(['/pessoas']);
+      this.http.post<any>('http://localhost:3000/pessoas', form).subscribe(data => {
+        if(data.ok) this.router.navigate(['/pessoas']);
+        else this.validate=data.message.errors;        
       })
     }
   }

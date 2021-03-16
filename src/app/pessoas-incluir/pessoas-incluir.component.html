@@ -5,11 +5,17 @@
     <div class="form-group">
       <label for="nome">Nome</label>
       <input type="text" class="form-control" formControlName="nome">
+      <div class="alert alert-danger" *ngIf="validate.nome">
+        {{validate.nome.message}}
+      </div>
     </div>
 
     <div class="form-group">
       <label for="cpf">CPF</label>
       <input type="text" class="form-control" formControlName="cpf">
+      <div class="alert alert-danger" *ngIf="validate.cpf">
+        {{validate.cpf.message}}
+      </div>
     </div>
 
     <div class="form-group">

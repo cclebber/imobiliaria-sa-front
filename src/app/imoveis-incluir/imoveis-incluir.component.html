@@ -22,7 +22,7 @@
         <label for="valor_aluguel">Valor do Aluguel</label>
         <input type="number" class="form-control" id="valor_aluguel" formControlName="valor_aluguel">
         <div class="alert alert-danger" *ngIf="validate.valor_aluguel">
-          {{validate.nome.message}}
+          {{validate.valor_aluguel.message}}
         </div>
     </div>
 
@@ -36,7 +36,9 @@
 
 
     <app-pessoa-form-list label="Proprietário" [nome]="proprietario?.nome" (pessoa)="selecionaProprietario($event)"></app-pessoa-form-list>
-  
+    <div class="alert alert-danger" *ngIf="validate.proprietario">
+      {{validate.proprietario.message}}
+    </div>
 
     <a class="btn btn-danger my-3" *ngIf="imovelId && !notExclude" (click)="excluir()">Excluir</a>
   

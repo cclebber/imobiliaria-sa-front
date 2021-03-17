@@ -57,14 +57,9 @@ export class ContratosIncluirComponent implements OnInit {
   }
 
   onSubmit(): void {
-    let form = this.form.value;
-    form.valor_caucao=form.valor_caucao*1;
-    form.valor_aluguel=form.valor_aluguel*1;
-    form.data_pagamento=form.data_pagamento*1;
-    form.data_inicio=new Date(form.data_inicio);
-    form.data_final=new Date(form.data_final);
-    form.inquilino=this.inquilino._id;
-    form.imovel=this.imovel._id;
+    let form = this.form.value;    
+    if(this.inquilino) form.inquilino=this.inquilino._id;
+    if(this.imovel) form.imovel=this.imovel._id;
 
     if(this.contratoId){
       //altera
@@ -83,7 +78,7 @@ export class ContratosIncluirComponent implements OnInit {
   }
 
   excluir(): void {
-    if(confirm("Tem certeza que deseja mesmo excluir?")){      
+    if(confirm("Tem certeza que deseja mesmo excluir?")){
       this.http.delete('http://localhost:3000/contratos/'+this.contratoId).subscribe(data => {
         this.router.navigate(['/contratos']);
       })

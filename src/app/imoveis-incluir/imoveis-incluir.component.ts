@@ -49,9 +49,6 @@ export class ImoveisIncluirComponent implements OnInit {
 
   onSubmit(): void {
     let form = this.form.value;
-    form.cpf=form.cep*1;
-    form.valor_aluguel=form.valor_aluguel*1;
-    form.valor_iptu=form.valor_iptu*1;
     if (this.proprietario)form.proprietario=this.proprietario._id;
 
     if(this.imovelId){

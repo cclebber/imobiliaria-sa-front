@@ -17,7 +17,7 @@
           <tr *ngFor="let imovel of imoveis">
             <td>{{imovel.referencia}}</td>
             <td>{{imovel.endereco}}</td>
-            <td>{{imovel.cep}}</td>
+            <td>{{imovel.cep | mask: '00000-000'}}</td>
             <td>{{imovel.valor_aluguel | currency:'R$ '}}</td>
             <td>{{imovel.valor_iptu | currency:'R$ '}}</td>
             <td>{{imovel.proprietario.nome}}</td>

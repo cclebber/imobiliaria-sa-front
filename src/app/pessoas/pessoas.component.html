@@ -17,7 +17,7 @@
         <tr *ngFor="let pessoa of pessoas">
           <td>{{pessoa.nome}}</td>
           <td>{{pessoa.cpf}}</td>
-          <td>{{pessoa.data_nascimento}}</td>
+          <td>{{pessoa.data_nascimento | date:'dd/MM/YYYY'}}</td>
           <td>{{pessoa.endereco}}</td>
           <td>{{pessoa.pix}}</td>
           <td>{{pessoa.contato}}</td>

@@ -16,6 +16,13 @@ import { ContratosIncluirComponent } from './contratos-incluir/contratos-incluir
 import { PessoaFormListComponent } from './pessoa-form-list/pessoa-form-list.component';
 import { ImoveisFormListComponent } from './imoveis-form-list/imoveis-form-list.component';
 
+import {LOCALE_ID} from '@angular/core';
+
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localePt, 'pt');
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +42,10 @@ import { ImoveisFormListComponent } from './imoveis-form-list/imoveis-form-list.
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: "pt-BR"
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

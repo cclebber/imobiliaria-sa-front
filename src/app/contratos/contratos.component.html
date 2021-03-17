@@ -17,10 +17,10 @@
         <tbody>
           <tr>
             <tr *ngFor="let contrato of contratos">
-              <td>{{contrato.data_inicio}}</td>
-              <td>{{contrato.data_final}}</td>
-              <td>{{contrato.valor_aluguel}}</td>
-              <td>{{contrato.valor_caucao}}</td>
+              <td>{{contrato.data_inicio | date:'dd/MM/YYYY'}}</td>
+              <td>{{contrato.data_final | date:'dd/MM/YYYY'}}</td>
+              <td>{{contrato.valor_aluguel | currency:'R$ '}}</td>
+              <td>{{contrato.valor_caucao | currency:'R$ '}}</td>
               <td>{{contrato.data_pagamento}}</td>
               <td>{{contrato.inquilino.nome}}</td>
               <td>{{contrato.imovel.referencia}} - {{contrato.imovel.endereco}}</td>

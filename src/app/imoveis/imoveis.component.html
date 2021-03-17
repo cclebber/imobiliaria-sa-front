@@ -18,8 +18,8 @@
             <td>{{imovel.referencia}}</td>
             <td>{{imovel.endereco}}</td>
             <td>{{imovel.cep}}</td>
-            <td>{{imovel.valor_aluguel}}</td>
-            <td>{{imovel.valor_iptu}}</td>
+            <td>{{imovel.valor_aluguel | currency:'R$ '}}</td>
+            <td>{{imovel.valor_iptu | currency:'R$ '}}</td>
             <td>{{imovel.proprietario.nome}}</td>
             <td><a [routerLink]="['/imoveis-editar', imovel._id]" class="btn btn-secondary"> <i class="bi bi-pencil-square"></i> </a></td>
           </tr>

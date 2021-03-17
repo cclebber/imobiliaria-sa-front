@@ -12,7 +12,7 @@
 
     <div class="form-group">
       <label for="cep">CEP</label>
-      <input type="number" class="form-control" id="cep" formControlName="cep">
+      <input type="text" class="form-control" id="cep" formControlName="cep" mask="00000-000">
       <div class="alert alert-danger" *ngIf="validate.cep">
         {{validate.cep.message}}
       </div>

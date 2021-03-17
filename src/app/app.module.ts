@@ -23,6 +23,13 @@ import {registerLocaleData} from '@angular/common';
 
 registerLocaleData(localePt, 'pt');
 
+
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +47,8 @@ registerLocaleData(localePt, 'pt');
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
   providers: [{
     provide: LOCALE_ID,

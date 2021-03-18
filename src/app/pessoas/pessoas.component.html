@@ -16,11 +16,11 @@
       <tbody>
         <tr *ngFor="let pessoa of pessoas">
           <td>{{pessoa.nome}}</td>
-          <td>{{pessoa.cpf}}</td>
+          <td>{{pessoa.cpf | mask: 'CPF_CNPJ'}}</td>
           <td>{{pessoa.data_nascimento | date:'dd/MM/YYYY'}}</td>
           <td>{{pessoa.endereco}}</td>
           <td>{{pessoa.pix}}</td>
-          <td>{{pessoa.contato}}</td>
+          <td>{{pessoa.contato | mask: '(00) 0 0000-0000'}}</td>
           <td><a [routerLink]="['/pessoas-editar', pessoa._id]" class="btn btn-secondary"> <i class="bi bi-pencil-square"></i> </a></td>
         </tr>
       </tbody>

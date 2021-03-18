@@ -24,7 +24,8 @@ import {registerLocaleData} from '@angular/common';
 registerLocaleData(localePt, 'pt');
 
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { PagamentosComponent } from './pagamentos/pagamentos.component'
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -40,7 +41,8 @@ const maskConfig: Partial<IConfig> = {
     ContratosComponent,
     ContratosIncluirComponent,
     PessoaFormListComponent,
-    ImoveisFormListComponent
+    ImoveisFormListComponent,
+    PagamentosComponent
   ],
   imports: [
     BrowserModule,

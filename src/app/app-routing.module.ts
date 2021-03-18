@@ -6,6 +6,7 @@ import { ImoveisComponent } from './imoveis/imoveis.component';
 import { ImoveisIncluirComponent } from './imoveis-incluir/imoveis-incluir.component';
 import { ContratosComponent } from './contratos/contratos.component';
 import { ContratosIncluirComponent } from './contratos-incluir/contratos-incluir.component';
+import { PagamentosComponent } from './pagamentos/pagamentos.component';
 
 const routes: Routes = [
   {path: 'pessoas', component: PessoasComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'contratos', component: ContratosComponent},
   {path: 'contratos-incluir', component: ContratosIncluirComponent},
   {path: 'contratos-editar/:id', component: ContratosIncluirComponent},
+  {path: 'pagamentos/:id', component: PagamentosComponent},
 ];
 
 @NgModule({

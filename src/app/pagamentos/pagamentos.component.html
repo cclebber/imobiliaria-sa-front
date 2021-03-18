@@ -1,1 +1,80 @@
-<p>pagamentos works!</p>
+<div class="container">
+    <h1>Incluir Registro de Pagamento</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="data_recebimento">Data de Recebimento</label>
+        <input type="date" class="form-control" id="data_recebimento" formControlName="data_recebimento">
+        <div class="alert alert-danger" *ngIf="validate.data_recebimento">
+          {{validate.data_recebimento.message}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="valor_recebido">Valor Recebido</label>
+        <input type="number" class="form-control" id="valor_recebido" formControlName="valor_recebido">
+        <div class="alert alert-danger" *ngIf="validate.valor_recebido">
+          {{validate.valor_recebido.message}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label for="mes_referencia">Mês de Referência</label>
+              <select class="form-select" id="mes_referencia" formControlName="mes_referencia">
+                <option value="Janeiro">Janeiro</option>
+                <option value="Fevereiro">Fevereiro</option>
+                <option value="Março">Março</option>
+                <option value="Abril">Abril</option>
+                <option value="Maio">Maio</option>
+                <option value="Junho">Junho</option>
+                <option value="Julho">Julho</option>
+                <option value="Agosto">Agosto</option>
+                <option value="Setembro">Setembro</option>
+                <option value="Outubro">Outubro</option>
+                <option value="Novembro">Novembro</option>
+                <option value="Dezembro">Dezembro</option>
+              </select>
+              <div class="alert alert-danger" *ngIf="validate.mes_referencia">
+                {{validate.mes_referencia.message}}
+              </div>
+            </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="valor_caucao">\Ano de Refereêcia</label>
+        <input type="number" class="form-control" id="ano_referencia" formControlName="ano_referencia">
+        <div class="alert alert-danger" *ngIf="validate.ano_referencia">
+          {{validate.ano_referencia.message}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-primary my-3">Registrar</button>
+    </div>
+  </form>
+</div>
+<div class="container">
+  <h1>Registros de Recebimento</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Data de Recebimento</th>
+        <th scope="col">Valor Recebido</th>
+        <th scope="col">Referência</th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <tr *ngFor="let pagamento of pagamentos">
+          <td>{{pagamento.data_recebimento | date:'dd/MM/YYYY'}}</td>
+          <td>{{pagamento.valor_recebido | currency:'R$ '}}</td>
+          <td>{{pagamento.mes_referencia}} de {{pagamento.ano_referencia}}</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+

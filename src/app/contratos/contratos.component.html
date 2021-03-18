@@ -27,6 +27,7 @@
               <td>
                 <a href="http://localhost:3000/contratos/imprimir/{{contrato._id}}" target="_blank" class="btn btn-secondary"> <i class="bi bi-printer"></i></a>
                 <a [routerLink]="['/contratos-editar', contrato._id]" class="btn btn-secondary"> <i class="bi bi-pencil-square"></i></a>
+                <a [routerLink]="['/pagamentos', contrato._id]" class="btn btn-secondary"> <i class="bi bi-graph-up"></i></a>
               </td>
             </tr>
         </tbody>
